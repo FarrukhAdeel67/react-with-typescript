@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-function App() {
+import InputField from './components/InputField';
+
+//React.FC functional component other than that ReactNode supports all the functions
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string>("")
+  console.log(todo);
   return (
     <div className="App">
-    Allah Ho Akbar
+      <span className="heading">Taskify</span>
+      <InputField todo={todo} setTodo={setTodo} />
     </div>
   );
 }
