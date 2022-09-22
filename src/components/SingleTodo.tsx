@@ -25,34 +25,34 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }: Props) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
   //handle edit function
-  const handleEdit =(e:React.FormEvent,id:number)=>{
+  const handleEdit = (e: React.FormEvent, id: number) => {
     e.preventDefault();
-    setTodos(todos.map((todo)=>(
-      todo.id===id?{...todo,todo:editTodo}:todo
+    setTodos(todos.map((todo) => (
+      todo.id === id ? { ...todo, todo: editTodo } : todo
     )));
     setEdit(false);
   }
   //use ref hook
   const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(()=>{
+  useEffect(() => {
     inputRef.current?.focus();
-  },[edit])
+  }, [edit])
   return (
-    <form className='todos__single' onSubmit={(e)=> handleEdit(e,todo.id)}>
+    <form className='todos__single' onSubmit={(e) => handleEdit(e, todo.id)}>
       {
         edit ? (
-            <input ref={inputRef} type="text" className='todos__single--text' value={editTodo} onChange={(e)=> setEditTodo(e.target.value)}/>
-        ): (
-            todo.isDone ? (
-      <s className="todos__single--text">
-        {todo.todo}
-      </s>
-      ) : (
-      <span className="todos__single--text">
-        {todo.todo}
-      </span>
-      )
-      )
+          <input ref={inputRef} type="text" className='todos__single--text' value={editTodo} onChange={(e) => setEditTodo(e.target.value)} />
+        ) : (
+          todo.isDone ? (
+            <s className="todos__single--text">
+              {todo.todo}
+            </s>
+          ) : (
+            <span className="todos__single--text">
+              {todo.todo}
+            </span>
+          )
+        )
       }
 
 
