@@ -9,7 +9,7 @@ type Props = {
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
 };
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }: Props) => {
-  //edit function
+  //Edit function
   //we will use the states here for edit function
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState<string>(todo.todo);
