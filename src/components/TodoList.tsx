@@ -3,7 +3,6 @@ import './style.css'
 import { Todo } from "../model"
 import SingleTodo from './SingleTodo';
 interface Props {
-  
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
 }
